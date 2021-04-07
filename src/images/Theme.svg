@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.5" height="25.5" viewBox="0 0 25.5 25.5">
+  <g id="Theme" transform="translate(0.75 0.75)">
+    <path id="Rectangle_1587" data-name="Rectangle 1587" d="M2,0H12a0,0,0,0,1,0,0V24a0,0,0,0,1,0,0H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0Z" fill="none" stroke="#212b35" stroke-width="1.5"/>
+    <path id="Rectangle_1588" data-name="Rectangle 1588" d="M0,0H10a2,2,0,0,1,2,2V16a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(12)" fill="none" stroke="#212b35" stroke-width="1.5"/>
+    <path id="Rectangle_1589" data-name="Rectangle 1589" d="M0,0H12a0,0,0,0,1,0,0V6a2,2,0,0,1-2,2H0A0,0,0,0,1,0,8V0A0,0,0,0,1,0,0Z" transform="translate(12 16)" fill="none" stroke="#212b35" stroke-width="1.5"/>
+    <rect id="Rectangle_1590" data-name="Rectangle 1590" width="5.6" height="8" transform="translate(12 16)" fill="none" stroke="#212b35" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,14 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import FormBuilder from "./pages/formBuilder/FormBuilder";
+import FormBuilderContextProvider from "./contexts/FormBuilderContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      
-      
-        
-      </header>
+      <FormBuilderContextProvider>
+        <FormBuilder />
+      </FormBuilderContextProvider>
     </div>
   );
 }
