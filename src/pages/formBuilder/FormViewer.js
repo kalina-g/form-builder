@@ -35,6 +35,7 @@ const ViewPort = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 20px 0;
   background: transparent
     radial-gradient(closest-side at 50% 50%, #b5b5b5 0%, #939393 100%) 0% 0%
     no-repeat padding-box;
@@ -43,7 +44,7 @@ const ViewPort = styled.div`
     width: 842px;
   }
 
-  &.mobile {
+  &.phone {
     width: 464px;
   }
 

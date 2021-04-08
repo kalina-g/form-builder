@@ -3,7 +3,12 @@ import styled from "styled-components";
 import FormActionsBar from "./FormActionsBar";
 import FormViewer from "./FormViewer";
 import ThemesList from "./ThemesList";
-import SideNav, { SideNavItem } from "../../components/SideNav";
+import SideNav, {
+  NavMenu,
+  SideNavItem,
+  StickyItem,
+} from "../../components/SideNav";
+import SiteHeader from "../../components/SiteHeader";
 import useFormBuilderContext from "../../hooks/useFormBuilderContext";
 import { ReactComponent as Desktop } from "../../images/Desktop.svg";
 import { ReactComponent as Pad } from "../../images/Pad.svg";
@@ -14,6 +19,7 @@ import { ReactComponent as Text } from "../../images/Text.svg";
 import { ReactComponent as PhoneField } from "../../images/PhoneField.svg";
 import { ReactComponent as Email } from "../../images/Email.svg";
 import { ReactComponent as Checkbox } from "../../images/Checkbox.svg";
+import { ReactComponent as ArrowRight } from "../../images/ArrowRight.svg";
 
 const ResponsiveModeToggle = () => {
   const { toggleResponsiveMode, responsiveMode } = useFormBuilderContext();
@@ -53,20 +59,31 @@ const ResponsiveModeToggle = () => {
 const FormBuilder = () => {
   return (
     <>
+      <SiteHeader />
       <FormActionsBar />
       <Wrap>
         <SideNav>
-          <CustomContent>
-            <ResponsiveModeToggle />
-          </CustomContent>
-          <SideNavItem item={"Theme"} icon={<Theme />}>
-            <ThemesList />
-          </SideNavItem>
-          <SideNavItem item={"Form"} icon={<Form />} />
-          <SideNavItem item={"Text"} icon={<Text />} />
-          <SideNavItem item={"Phone field"} icon={<PhoneField />} />
-          <SideNavItem item={"Email field"} icon={<Email />} />
-          <SideNavItem item={"Nav field"} icon={<Checkbox />} />
+          <NavMenu>
+            <CustomContent>
+              <ResponsiveModeToggle />
+            </CustomContent>
+            <SideNavItem item={"Theme"} icon={<Theme />}>
+              <ThemesList />
+            </SideNavItem>
+            <SideNavItem item={"Form"} icon={<Form />} />
+            <SideNavItem item={"Text"} icon={<Text />} />
+            <SideNavItem item={"Phone field"} icon={<PhoneField />} />
+            <SideNavItem item={"Email field"} icon={<Email />} />
+            <SideNavItem item={"Nav field"} icon={<Checkbox />} />
+          </NavMenu>
+          <StickyItem>
+            <NextBtn>
+              <span>New Form 1/4</span>
+              <div className="icon">
+                <ArrowRight />
+              </div>
+            </NextBtn>
+          </StickyItem>
         </SideNav>
         <FormViewer />
       </Wrap>
@@ -94,4 +111,31 @@ const Btn = styled.div`
   justify-content: center;
   width: 50px;
   height: 50px;
+`;
+
+const NextBtn = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #606dc5;
+  color: #fff;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  padding: 0 40px;
+
+  //TODO: again needs implementation for font icons
+  .icon {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    width: 12px;
+
+    svg {
+      display: block;
+    }
+  }
 `;

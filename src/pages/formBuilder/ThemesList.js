@@ -40,8 +40,10 @@ export default ThemesList;
 
 const ThemeItem = styled.div`
   position: relative;
-  margin: 0 15px 18px;
+  margin: 0 0 18px;
+  padding: 0 15px;
   cursor: pointer;
+  flex-basis: 50%;
 `;
 
 const Wrap = styled.div`
@@ -75,6 +77,7 @@ const Label = styled.div`
   width: 100%;
   position: absolute;
   top: -10px;
+  left: 0;
   font-size: 12px;
   line-height: 20px;
 

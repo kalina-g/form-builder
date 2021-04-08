@@ -24,17 +24,29 @@ export const SideNavItem = ({ item, icon, children, onOpen }) => {
   );
 };
 
-const SideNav = ({ children }) => {
-  return <Wrap>{children}</Wrap>;
-};
+export const StickyItem = ({ children }) => <StickyWrap>{children}</StickyWrap>;
+
+export const NavMenu = ({ children }) => <MenuWrap>{children}</MenuWrap>;
+
+const SideNav = ({ children }) => <Wrap>{children}</Wrap>;
 
 export default SideNav;
 
 const Wrap = styled.div`
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 234px;
 `;
 
+const MenuWrap = styled.div`
+  flex-grow: 1;
+`;
+
+const StickyWrap = styled.div`
+  height: 40px;
+`;
 const ItemWrap = styled.div`
   position: relative;
 

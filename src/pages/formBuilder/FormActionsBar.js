@@ -46,7 +46,7 @@ const FormActionsBar = () => {
         <Divider height={34} color="#E2E9EF" spacing={{ left: 7, right: 15 }} />
         <IconButton>
           <Delete />
-          <span>Delete</span>
+          <span>Delete Element</span>
         </IconButton>
       </FormActions>
     </Wrap>
@@ -79,10 +79,15 @@ const Wrap = styled.div`
   flex: 0 0 54px;
   justify-content: space-between;
   background-color: #f4f6f8;
+
+  & > * {
+    flex-basis: 33.3333%;
+  }
 `;
 
 const PreviewActions = styled.div`
   display: flex;
+  justify-content: center;
   padding: 10px 0;
   background-color: #f4f6f8;
 
@@ -93,14 +98,12 @@ const PreviewActions = styled.div`
 
 const StateTabs = styled.div`
   display: flex;
-  width: 235px;
   background-color: #f4f6f8;
 `;
 
 const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 235px;
   padding: 10px 24px 10px 0;
   background-color: #f4f6f8;
 `;
