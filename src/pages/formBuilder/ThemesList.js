@@ -56,6 +56,7 @@ const Wrap = styled.div`
   img {
     display: block;
     width: 120px;
+    height: 120px;
     max-width: 100%;
   }
 `;

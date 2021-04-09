@@ -1,25 +1,52 @@
-import { useState } from "react";
+import { useLayoutEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import cn from "classnames";
 
+import useFormBuilderContext from "../hooks/useFormBuilderContext";
+
+const handleAbsPositionedEl = (container, element) => {
+  const excessHeight =
+    element.parentNode.offsetTop +
+    element.offsetHeight -
+    container.offsetHeight;
+
+  if (excessHeight > 0) {
+    element.style.height =
+      container.offsetHeight - element.parentNode.offsetTop + "px";
+    element.style.overflow = "auto";
+  }
+};
+
 export const SideNavItem = ({ item, icon, children, onOpen }) => {
+  const { appWrapEl } = useFormBuilderContext();
   const [isOpen, setIsOpen] = useState(false);
+  const menuContentEl = useRef();
+
+  useLayoutEffect(() => {
+    appWrapEl &&
+      isOpen &&
+      handleAbsPositionedEl(appWrapEl, menuContentEl.current);
+  }, [isOpen, appWrapEl]);
 
   return (
     <ItemWrap
       onMouseEnter={() => {
-        setIsOpen(!isOpen);
-        onOpen && onOpen();
+        children && setIsOpen(!isOpen);
+        children && onOpen && onOpen();
       }}
       onMouseLeave={() => {
-        setIsOpen(!isOpen);
+        children && setIsOpen(!isOpen);
       }}
     >
       <div className={cn("nav-item", { selected: isOpen })}>
         {icon}
         {item}
       </div>
-      {isOpen && <Content>{children}</Content>}
+      {isOpen && children && (
+        <Content ref={menuContentEl}>
+          <div>{children}</div>
+        </Content>
+      )}
     </ItemWrap>
   );
 };
@@ -84,6 +111,5 @@ const Content = styled.div`
   top: 0;
   left: 100%;
   background: #f7f7f7;
-
   cursor: default;
 `;

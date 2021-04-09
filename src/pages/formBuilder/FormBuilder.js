@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import FormActionsBar from "./FormActionsBar";
@@ -10,16 +11,16 @@ import SideNav, {
 } from "../../components/SideNav";
 import SiteHeader from "../../components/SiteHeader";
 import useFormBuilderContext from "../../hooks/useFormBuilderContext";
+import { ReactComponent as PhoneField } from "../../images/PhoneField.svg";
+import { ReactComponent as ArrowRight } from "../../images/ArrowRight.svg";
+import { ReactComponent as Checkbox } from "../../images/Checkbox.svg";
 import { ReactComponent as Desktop } from "../../images/Desktop.svg";
-import { ReactComponent as Pad } from "../../images/Pad.svg";
+import { ReactComponent as Email } from "../../images/Email.svg";
 import { ReactComponent as Phone } from "../../images/Phone.svg";
 import { ReactComponent as Theme } from "../../images/Theme.svg";
 import { ReactComponent as Form } from "../../images/Form.svg";
 import { ReactComponent as Text } from "../../images/Text.svg";
-import { ReactComponent as PhoneField } from "../../images/PhoneField.svg";
-import { ReactComponent as Email } from "../../images/Email.svg";
-import { ReactComponent as Checkbox } from "../../images/Checkbox.svg";
-import { ReactComponent as ArrowRight } from "../../images/ArrowRight.svg";
+import { ReactComponent as Pad } from "../../images/Pad.svg";
 
 const ResponsiveModeToggle = () => {
   const { toggleResponsiveMode, responsiveMode } = useFormBuilderContext();
@@ -57,8 +58,15 @@ const ResponsiveModeToggle = () => {
 };
 
 const FormBuilder = () => {
+  const { setAppWrapEl } = useFormBuilderContext();
+  const appContainerRef = useRef();
+
+  useEffect(() => {
+    setAppWrapEl(appContainerRef.current);
+  }, [setAppWrapEl]);
+
   return (
-    <>
+    <PageWrap ref={appContainerRef}>
       <SiteHeader />
       <FormActionsBar />
       <Wrap>
@@ -87,11 +95,17 @@ const FormBuilder = () => {
         </SideNav>
         <FormViewer />
       </Wrap>
-    </>
+    </PageWrap>
   );
 };
 
 export default FormBuilder;
+
+const PageWrap = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 const Wrap = styled.div`
   display: flex;
